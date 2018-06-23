@@ -8,6 +8,7 @@ import java.util.stream.Stream;
 
 public class HrManager {
 
+
 	private List<Employee> allEmployees = new ArrayList<>();
 
 
@@ -60,5 +61,13 @@ public class HrManager {
 		// filtrujemy tworząc lambde. Tworzymy lokalnie zmienną employee typu Employee.
 		// Geterem wyciągamy wszystkich pracowników i sprawdzamy czy w ich lastName jest nasz lastName
 		// po czym collect (zbieramy) w listę, a return ją zwraca.
+
+	public List<Employee> searchByFirstName() {
+		return allEmployees.stream().sorted(((firstEmployee, secondEmployee) -> firstEmployee.getFirstName()
+			.compareTo(secondEmployee.getFirstName()))).collect
+			(Collectors.toList
+			());
+	}
+
 	}
 
