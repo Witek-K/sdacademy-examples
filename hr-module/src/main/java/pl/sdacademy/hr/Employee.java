@@ -1,6 +1,8 @@
 package pl.sdacademy.hr;
 
- class Employee {
+import java.util.stream.Stream;
+
+class Employee {
   private final String firstName;
   private final String lastName;
   private final String dateOfBirth;
@@ -30,4 +32,9 @@ package pl.sdacademy.hr;
   }
 
 
+	 public boolean matches(String phrase) {
+                return  firstName.contains(phrase)||
+                        lastName.contains(phrase)||
+                        dateOfBirth.contains(phrase);
+	 }
  }

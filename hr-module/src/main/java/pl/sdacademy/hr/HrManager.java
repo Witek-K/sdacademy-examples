@@ -48,9 +48,11 @@ public class HrManager {
 
 	public List<Employee> searchByPhrase(String phrase) {
 
-			return allEmployees.stream().filter(employee -> employee.getFirstName().contains(phrase)
+			return allEmployees.stream().filter(employee ->
+				employee.matches(phrase))
+				/*  employee.getFirstName().contains(phrase)
 				||employee.getLastName().contains(phrase)
-				||employee.getDateOfBirth().contains(phrase))
+				||employee.getDateOfBirth().contains(phrase)) */
 				.collect(Collectors.toList());
 	}
 	// bierzemy wczesniej utworzona liste allEmployee. Otwieramy stream, czytaj ciąg wszystkiego z tej
