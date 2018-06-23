@@ -114,4 +114,43 @@ class HrManagerTest {
 		assertThat(foundEmployees).isEmpty();
 	}
 
+	@DisplayName("Should find two employees when firstName matches given search phrase")
+	@Test
+	void test7() {
+		//given
+		Employee adam = hrManager.create("Adam","Miauczynski", "01-12-1960");
+		Employee jurgenMuller = hrManager.create("Jurgen","Muller", "13-12-1660");
+		Employee jurgenBlitz = hrManager.create("Jurgen","Blitz", "13-12-1660");
+		//when
+		List<Employee> foundEmployees = hrManager.searchByPhrase("Jurgen");
+		//then
+		assertThat(foundEmployees).containsOnly(jurgenMuller, jurgenBlitz);
+	}
+
+	@DisplayName("Should find two employees when lastName matches given search phrase")
+	@Test
+	void test8() {
+		//given
+		Employee adam = hrManager.create("Adam","Miauczynski", "01-12-1960");
+		Employee jurgenBlitz = hrManager.create("Jurgen","Blitz", "13-12-1660");
+		Employee sztefan = hrManager.create("Sztefan", "Miauczynski", "11-10-1971");
+		//when
+		List<Employee> foundEmployees = hrManager.searchByPhrase("Miauczynski");
+		//then
+		assertThat(foundEmployees).containsOnly(adam,sztefan);
+	}
+
+	@DisplayName("Should find two employees when birthDate matches given search phrase")
+	@Test
+	void test9() {
+		//given
+		Employee adam = hrManager.create("Adam","Miauczynski", "01-12-1960");
+		Employee jurgenBlitz = hrManager.create("Jurgen","Blitz", "13-12-1660");
+		Employee sztefan = hrManager.create("Sztefan", "Miauczynski", "13-12-1660");
+		//when
+		List<Employee> foundEmployees = hrManager.searchByPhrase("13-12-1660");
+		//then
+		assertThat(foundEmployees).containsOnly(jurgenBlitz,sztefan);
+	}
+
 }
