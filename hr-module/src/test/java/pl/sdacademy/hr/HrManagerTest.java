@@ -166,4 +166,17 @@ class HrManagerTest {
 		assertThat(sortEmployees).containsExactly(adam,jurgenblitz,zenon);
 	}
 
+	@DisplayName("Should sort firstName by bubbleSort method")
+	@Test
+	void test11() {
+		//given
+		Employee adam = hrManager.create("Adam","Miauczynski", "01-12-1960");
+		Employee jurgenblitz = hrManager.create("Jurgen","Blitz", "13-12-1660");
+		Employee zenon = hrManager.create("Zenon","Miauczynski", "01-12-1968");
+		//when
+		List<Employee> sortBubEmployees = hrManager.bubbleSort();
+		//then
+		assertThat(sortBubEmployees).containsExactly(adam,jurgenblitz,zenon);
+	}
+
 }

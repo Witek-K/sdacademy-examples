@@ -2,7 +2,7 @@ package pl.sdacademy.hr;
 
 import java.util.stream.Stream;
 
-class Employee {
+class Employee implements Comparable<Employee>{
   private final String firstName;
   private final String lastName;
   private final String dateOfBirth;
@@ -37,4 +37,9 @@ class Employee {
                         lastName.contains(phrase)||
                         dateOfBirth.contains(phrase);
 	 }
- }
+
+        @Override
+        public int compareTo(Employee other) {
+                return firstName.compareTo(other.firstName);
+        }
+}
