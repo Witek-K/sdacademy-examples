@@ -84,5 +84,22 @@ public class HrManager {
 	return allEmployees;
 	}
 
+
+	public List<Employee> sortByFirstNameWithBubble() {
+
+			for (int j=0;j<allEmployees.size()-1;j++){
+			for (int i=0;i<allEmployees.size()-1-j;i++) {
+
+				if (allEmployees.get(i).getFirstName().compareTo(allEmployees.get(i+1).getFirstName())
+					< 0) {
+
+					Employee temp = allEmployees.get(i);
+					allEmployees.set(i, allEmployees.get(i+1));
+					allEmployees.set(i+1, temp);
+				}
+			}
+			}
+			return allEmployees;
 	}
+}
 
