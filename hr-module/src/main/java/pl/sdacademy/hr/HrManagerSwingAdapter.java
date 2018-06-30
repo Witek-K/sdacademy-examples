@@ -25,6 +25,7 @@ public class HrManagerSwingAdapter {
 	}
 
 	public void sortByLastName(DefaultTableModel tableModel) {
+		tableModel.getDataVector().clear();
 		List<Employee> sortEmployees = hrManager.sortByFirstNameWithBubble();
 		for (Employee employee: sortEmployees){
 			addRow(tableModel, employee);

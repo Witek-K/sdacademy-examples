@@ -96,11 +96,11 @@ public class HrManagerSwingAdapterTest {
 		assertThat(dateOfBirth).isEqualTo("06-02-1997");
 
 		//row1
-		Object firstNameFromTableModel2 = tableModel.getValueAt(0, 0);
+		Object firstNameFromTableModel2 = tableModel.getValueAt(1, 0);
 		assertThat(firstNameFromTableModel2).isEqualTo("Roger");
-		Object lastNameFromTableModel2 = tableModel.getValueAt(0, 1);
+		Object lastNameFromTableModel2 = tableModel.getValueAt(1, 1);
 		assertThat(lastNameFromTableModel2).isEqualTo("Nowak");
-		Object dateOfBirth2 = tableModel.getValueAt(0, 2);
+		Object dateOfBirth2 = tableModel.getValueAt(1, 2);
 		assertThat(dateOfBirth2).isEqualTo("08-11-1985");
 
 	}
@@ -115,4 +115,41 @@ public class HrManagerSwingAdapterTest {
 		};
 	}
 
+
+	@DisplayName("zakladajac ze table model nie jest pusty, powinien zostac zastapiony table modelem zwroconym " +
+
+		"przez metode sort z HrManagera")
+
+	@Test
+
+	void test03 () {
+
+		//given
+
+		// create empty table model
+		DefaultTableModel tableModel = new DefaultTableModel();
+		tableModel.addColumn("First Name");
+		tableModel.addColumn("Last Name");
+		tableModel.addColumn("Date of Birth");
+		tableModel.addRow(new Object[]{"George", "Martin", "11-01-2010"});
+		HrManagerSwingAdapter adapter = new HrManagerSwingAdapter(fakeSortHrManager());
+		//when
+		adapter.sortByLastName(tableModel);
+		//then
+		//row0
+		Object firstNameFromTableModel = tableModel.getValueAt(0, 0);
+		assertThat(firstNameFromTableModel).isEqualTo("Tomek");
+		Object lastNameFromTableModel = tableModel.getValueAt(0, 1);
+		assertThat(lastNameFromTableModel).isEqualTo("Lipa");
+		Object dateOfBirth = tableModel.getValueAt(0, 2);
+		assertThat(dateOfBirth).isEqualTo("06-02-1997");
+
+		//row1
+		Object firstNameFromTableModel2 = tableModel.getValueAt(1, 0);
+		assertThat(firstNameFromTableModel2).isEqualTo("Roger");
+		Object lastNameFromTableModel2 = tableModel.getValueAt(1, 1);
+		assertThat(lastNameFromTableModel2).isEqualTo("Nowak");
+		Object dateOfBirth2 = tableModel.getValueAt(1, 2);
+		assertThat(dateOfBirth2).isEqualTo("08-11-1985");
+	}
 }
