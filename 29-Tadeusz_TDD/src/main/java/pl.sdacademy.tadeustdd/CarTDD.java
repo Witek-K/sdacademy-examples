@@ -4,9 +4,11 @@ public class CarTDD {
 
 	private float tank;
 	final float MIN_LEVEL = 0f;
-	private float MAX_LEVEL = 35f;
+	float MAX_LEVEL = 35f;
 	private final CarType carType;
-	private int dirtLevel;
+	int dirtLevel=0;
+	float fuelUsage = 2;
+
 	Wheels wheels = new Wheels();
 
 	CarType getCarType(){
@@ -14,17 +16,28 @@ public class CarTDD {
 	}
 
 
+	CarTDD(CarType carType){
+		this.carType = carType;
+	}
+
 	CarTDD(CarType carType, float tankVolume){
 		this.carType = carType;
 		this.MAX_LEVEL = tankVolume;
+		this.tank = tankVolume;
 	}
 
+	CarTDD(CarType carType, float tankVolume, float fuelUsage) {
+		this.carType = carType;
+		this.MAX_LEVEL = tankVolume;
+		this.tank = tankVolume;
+		this.fuelUsage = fuelUsage;
+	}
 
 	float fuelLevel(){
 		return tank;
 	}
 
-	 void setFuelLevel(float fuelLevel) {
+	void setFuelLevel(float fuelLevel) {
 		this.tank=fuelLevel;
 	}
 

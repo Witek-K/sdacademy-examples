@@ -1,6 +1,7 @@
 package pl.sdacademy.tadeustdd;
 
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -119,17 +120,25 @@ class CarTDD_Test{
 
 	}
 
-	@DisplayName("should allow to race the 100 laps")
+
+	@DisplayName("should allow to race the 10 laps")
 	@Test
 	void Test08() {
 
 		//given
-		CarTDD raceCar = new CarTDD(ON, 40);
+		CarTDD raceCar = new CarTDD(ON, 40, 3.2f);
 		//when
 		Race race = new Race();
-
-
-
+		race.lap(raceCar, 100);
+		//then
+		assertThat(raceCar.getDirtLevel()).isEqualTo(24);
+		assertThat(raceCar.fuelLevel()).isCloseTo(1.6f, withinPercentage(1));
+		assertThat(raceCar.wheels.usageLevel).isEqualTo(36);
 	}
+
+
+
+
+
 
 }
