@@ -1,5 +1,6 @@
-package pl.sdacademy.auto;
+package pl.sdacademy.tadeustdd;
 
-public enum TypAuta { //enum typ auta nie przechowuje żadnych dodatkowych informacji, dlatego wygląda bardzo prosto
-    OSOBOWY, CIEZAROWY, SPORTOWY
+public enum CarType {
+    ON, PB, ACDC
 }
+

@@ -16,6 +16,7 @@ public class HrManager {
 	Employee create(String firstName, String lastName, String dateOfBirth) {
 
 		Employee employee = new Employee(firstName, lastName, dateOfBirth);
+
 		allEmployees.add(employee);
 		return employee;
 	}

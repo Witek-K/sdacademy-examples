@@ -35,6 +35,8 @@
 		<module>27-algorithms</module>
 		<module>hr-module</module>
 		<module>printer</module>
+		<module>28-wzorce_projektowe</module>
+		<module>29-Tadeusz_TDD</module>
 	</modules>
 	<packaging>pom</packaging>
 	<name>sdacademy-examples</name>
@@ -115,6 +117,14 @@
 			<version>${mockito.version}</version>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>1.18.0</version>
+			<scope>provided</scope>
+		</dependency>
+
+
 	</dependencies>
 
 	<build>
